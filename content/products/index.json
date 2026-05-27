@@ -1,0 +1,106 @@
+[
+    {
+        "id": "beef-noodle",
+        "name": {
+            "en": "Beef Flavor",
+            "uz": "Mol go'shti ta'mi",
+            "ru": "Говядина"
+        },
+        "category": {
+            "en": "Classic Series",
+            "uz": "Klassik seriya",
+            "ru": "Классическая серия"
+        },
+        "description": {
+            "en": "Rich beef broth with selected vegetables, the timeless classic taste",
+            "uz": "Boy mol go'shti buloni, tanlangan sabzavotlar bilan",
+            "ru": "Насыщенный говяжий бульон с отборными овощами, нестареющая классика"
+        },
+        "weight": "85g",
+        "shelf_life": "12 months",
+        "emoji": "🍜",
+        "badge": {
+            "en": "Best Seller",
+            "uz": "Ommabop",
+            "ru": "Хит продаж"
+        },
+        "featured": true,
+        "order": 1
+    },
+    {
+        "id": "spicy-chicken",
+        "name": {
+            "en": "Spicy Chicken",
+            "uz": "Achchiq tovuq ta'mi",
+            "ru": "Острая курица"
+        },
+        "category": {
+            "en": "Spicy Series",
+            "uz": "Achchiq seriya",
+            "ru": "Острая серия"
+        },
+        "description": {
+            "en": "Central Asian spices blend, spicy yet pleasant taste",
+            "uz": "O'rta Osiyo ziravorlari bilan, achchiq lekin yoqimli ta'm",
+            "ru": "Сочетание среднеазиатских специй, острый но приятный вкус"
+        },
+        "weight": "90g",
+        "shelf_life": "12 months",
+        "emoji": "🌶️",
+        "badge": null,
+        "featured": false,
+        "order": 2
+    },
+    {
+        "id": "shrimp",
+        "name": {
+            "en": "Shrimp Flavor",
+            "uz": "Qisqichbaqa ta'mi",
+            "ru": "Креветка"
+        },
+        "category": {
+            "en": "Seafood Series",
+            "uz": "Dengiz mahsulotlari",
+            "ru": "Морепродукты"
+        },
+        "description": {
+            "en": "Made from real shrimp powder, rich and savory taste",
+            "uz": "Haqiqiy qisqichbaqa unidan tayyorlangan, boy va mazali ta'm",
+            "ru": "Из настоящих креветок, насыщенный вкус"
+        },
+        "weight": "85g",
+        "shelf_life": "12 months",
+        "emoji": "🦐",
+        "badge": null,
+        "featured": false,
+        "order": 3
+    },
+    {
+        "id": "vegetable-grain",
+        "name": {
+            "en": "Vegetable Grain Noodle",
+            "uz": "Sabzavotli arpa la'mon",
+            "ru": "Овощная зерновая лапша"
+        },
+        "category": {
+            "en": "Healthy Series",
+            "uz": "Sog'lom seriya",
+            "ru": "Здоровая серия"
+        },
+        "description": {
+            "en": "Added vegetable powder, non-fried process, healthy low-fat choice",
+            "uz": "Ko'p sabzavotli un qo'shilgan, qovurilmagan, sog'lom va yog'siz tanlov",
+            "ru": "С добавлением овощного порошка, без обжарки, здоровый выбор"
+        },
+        "weight": "80g",
+        "shelf_life": "12 months",
+        "emoji": "🥬",
+        "badge": {
+            "en": "New",
+            "uz": "Yangi",
+            "ru": "Новинка"
+        },
+        "featured": false,
+        "order": 4
+    }
+]

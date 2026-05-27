@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NoodleUz Content Manager</title>
+    
+    <!-- Decap CMS 样式 -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    
+    <!-- 自定义样式（可选） -->
+    <style>
+        /* CMS 后台自定义样式 */
+        :root {
+            --primary-color: #E85D04;
+        }
+        
+        /* 品牌定制 */
+        .nc-appHeader-siteName {
+            font-weight: 800 !important;
+        }
+        
+        /* 保存按钮颜色 */
+        .nc-entryEditor-toolbar-saveButton {
+            background-color: var(--primary-color) !important;
+        }
+        
+        /* 发布按钮颜色 */
+        .nc-entryEditor-toolbar-publishButton {
+            background-color: var(--primary-color) !important;
+        }
+    </style>
+</head>
+<body>
+    <!-- CMS 会自动渲染在这里 -->
+    
+    <!-- Netlify Identity 重定向处理 -->
+    <script>
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+                if (!user) {
+                    window.netlifyIdentity.on("login", () => {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+backend:
+  name: git-gateway
+  branch: main
+
+# 本地开发模式（可选）
+# local_backend: true
+
+# 媒体文件存储位置
+media_folder: "assets/images"
+public_folder: "/assets/images"
+
+# 站点配置
+site_url: https://noodleuz.netlify.app
+display_url: https://noodleuz.netlify.app
+logo_url: /assets/images/logo.png
+
+# 多语言配置
+locales:
+  - en
+  - uz
+  - ru
+
+default_locale: en
+
+# 内容集合
+collections:
+  # ========== 产品管理 ==========
+  - name: "products"
+    label: "Products"
+    label_singular: "Product"
+    folder: "content/products"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Product ID", name: "id", widget: "string" }
+      - { label: "Product Name (EN)", name: "name_en", widget: "string" }
+      - { label: "Product Name (UZ)", name: "name_uz", widget: "string" }
+      - { label: "Product Name (RU)", name: "name_ru", widget: "string" }
+      - { label: "Category", name: "category", widget: "select", options: ["Classic Series", "Spicy Series", "Seafood Series", "Healthy Series", "Bulk Packaging"] }
+      - { label: "Description (EN)", name: "description_en", widget: "text" }
+      - { label: "Description (UZ)", name: "description_uz", widget: "text" }
+      - { label: "Description (RU)", name: "description_ru", widget: "text" }
+      - { label: "Weight", name: "weight", widget: "string", default: "85g" }
+      - { label: "Shelf Life", name: "shelf_life", widget: "string", default: "12 months" }
+      - { label: "Product Image", name: "image", widget: "image", required: false }
+      - { label: "Emoji Icon", name: "emoji", widget: "string", default: "🍜" }
+      - { label: "Badge Text", name: "badge", widget: "string", required: false, hint: "e.g., Best Seller, New, Hot" }
+      - { label: "Featured", name: "featured", widget: "boolean", default: false }
+      - { label: "Order", name: "order", widget: "number", default: 0 }
+
+  # ========== 站点设置 ==========
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "general"
+        label: "General Settings"
+        file: "content/site/settings.json"
+        fields:
+          - label: "Company Information"
+            name: "company"
+            widget: "object"
+            fields:
+              - { label: "Company Name", name: "name", widget: "string", default: "NoodleUz" }
+              - { label: "Founded Year", name: "founded", widget: "number", default: 2018 }
+              - { label: "Factory Area (m²)", name: "factory_area", widget: "string", default: "5000" }
+              - { label: "Export Countries", name: "export_countries", widget: "number", default: 8 }
+              - { label: "Product Varieties", name: "product_varieties", widget: "number", default: 15 }
+              - { label: "Daily Capacity (boxes)", name: "daily_capacity", widget: "string", default: "50K+" }
+          
+          - label: "Contact Information"
+            name: "contact"
+            widget: "object"
+            fields:
+              - { label: "Address", name: "address", widget: "text" }
+              - { label: "Phone", name: "phone", widget: "string" }
+              - { label: "WhatsApp", name: "whatsapp", widget: "string" }
+              - { label: "Email", name: "email", widget: "string" }
+              - { label: "Business Hours (EN)", name: "hours_en", widget: "text" }
+              - { label: "Business Hours (UZ)", name: "hours_uz", widget: "text" }
+              - { label: "Business Hours (RU)", name: "hours_ru", widget: "text" }
+          
+          - label: "Social Media"
+            name: "social"
+            widget: "object"
+            fields:
+              - { label: "Facebook", name: "facebook", widget: "string", required: false }
+              - { label: "Instagram", name: "instagram", widget: "string", required: false }
+              - { label: "Telegram", name: "telegram", widget: "string", required: false }
+              - { label: "YouTube", name: "youtube", widget: "string", required: false }
+
+      - name: "translations"
+        label: "Translations"
+        file: "content/translations/strings.json"
+        fields:
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - { label: "Hero Title", name: "hero_title", widget: "text" }
+              - { label: "Hero Description", name: "hero_desc", widget: "text" }
+              - { label: "About Title", name: "about_title", widget: "string" }
+              - { label: "About Paragraph 1", name: "about_p1", widget: "text" }
+              - { label: "About Paragraph 2", name: "about_p2", widget: "text" }
+              - { label: "Quality Title", name: "quality_title", widget: "string" }
+              - { label: "B2B Title", name: "b2b_title", widget: "string" }
+              - { label: "B2B Introduction", name: "b2b_intro", widget: "text" }
+              - { label: "Footer Description", name: "footer_desc", widget: "text" }
+          
+          - label: "Uzbek"
+            name: "uz"
+            widget: "object"
+            fields:
+              - { label: "Hero Title", name: "hero_title", widget: "text" }
+              - { label: "Hero Description", name: "hero_desc", widget: "text" }
+              - { label: "About Title", name: "about_title", widget: "string" }
+              - { label: "About Paragraph 1", name: "about_p1", widget: "text" }
+              - { label: "About Paragraph 2", name: "about_p2", widget: "text" }
+              - { label: "Quality Title", name: "quality_title", widget: "string" }
+              - { label: "B2B Title", name: "b2b_title", widget: "string" }
+              - { label: "B2B Introduction", name: "b2b_intro", widget: "text" }
+              - { label: "Footer Description", name: "footer_desc", widget: "text" }
+          
+          - label: "Russian"
+            name: "ru"
+            widget: "object"
+            fields:
+              - { label: "Hero Title", name: "hero_title", widget: "text" }
+              - { label: "Hero Description", name: "hero_desc", widget: "text" }
+              - { label: "About Title", name: "about_title", widget: "string" }
+              - { label: "About Paragraph 1", name: "about_p1", widget: "text" }
+              - { label: "About Paragraph 2", name: "about_p2", widget: "text" }
+              - { label: "Quality Title", name: "quality_title", widget: "string" }
+              - { label: "B2B Title", name: "b2b_title", widget: "string" }
+              - { label: "B2B Introduction", name: "b2b_intro", widget: "text" }
+              - { label: "Footer Description", name: "footer_desc", widget: "text" }
+
+  # ========== 认证资质 ==========
+  - name: "certifications"
+    label: "Certifications"
+    folder: "content/certifications"
+    create: true
+    fields:
+      - { label: "Certification Name", name: "name", widget: "string" }
+      - { label: "Short Code", name: "code", widget: "string", hint: "e.g., HALAL, ISO 22000" }
+      - { label: "Description (EN)", name: "description_en", widget: "text" }
+      - { label: "Description (UZ)", name: "description_uz", widget: "text" }
+      - { label: "Description (RU)", name: "description_ru", widget: "text" }
+      - { label: "Certificate Image", name: "image", widget: "image" }
+      - { label: "Valid Until", name: "valid_until", widget: "datetime" }
+
+  # ========== 新闻动态 ==========
+  - name: "news"
+    label: "News & Updates"
+    folder: "content/news"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title (EN)", name: "title_en", widget: "string" }
+      - { label: "Title (UZ)", name: "title_uz", widget: "string" }
+      - { label: "Title (RU)", name: "title_ru", widget: "string" }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Featured Image", name: "image", widget: "image" }
+      - { label: "Excerpt (EN)", name: "excerpt_en", widget: "text" }
+      - { label: "Excerpt (UZ)", name: "excerpt_uz", widget: "text" }
+      - { label: "Excerpt (RU)", name: "excerpt_ru", widget: "text" }
+      - { label: "Body (EN)", name: "body_en", widget: "markdown" }
+      - { label: "Body (UZ)", name: "body_uz", widget: "markdown" }
+      - { label: "Body (RU)", name: "body_ru", widget: "markdown" }
+      - { label: "Tags", name: "tags", widget: "list", default: ["news"] }

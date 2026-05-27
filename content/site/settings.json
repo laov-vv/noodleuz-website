@@ -1,0 +1,25 @@
+{
+    "company": {
+        "name": "NoodleUz",
+        "founded": 2018,
+        "factory_area": "5000",
+        "export_countries": 8,
+        "product_varieties": 15,
+        "daily_capacity": "50K+"
+    },
+    "contact": {
+        "address": "Tashkent, Uzbekistan, Yangi Hayot District, Industrial Street 15",
+        "phone": "+998 71 234 56 78",
+        "whatsapp": "+998 90 123 45 67",
+        "email": "info@noodleuz.uz",
+        "hours_en": "Mon-Fri: 09:00 - 18:00\nSat: 09:00 - 14:00\nSun: Closed",
+        "hours_uz": "Dushanba - Juma: 09:00 - 18:00\nShanba: 09:00 - 14:00\nYakshanba: Dam olish",
+        "hours_ru": "Пн-Пт: 09:00 - 18:00\nСб: 09:00 - 14:00\nВс: Выходной"
+    },
+    "social": {
+        "facebook": "",
+        "instagram": "",
+        "telegram": "",
+        "youtube": ""
+    }
+}

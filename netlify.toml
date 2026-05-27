@@ -2,6 +2,10 @@
   publish = "."
   command = "echo 'No build needed'"
 
+# Identity 配置
+[identity]
+  enabled = true
+
 [build.environment]
   NODE_VERSION = "18"
 

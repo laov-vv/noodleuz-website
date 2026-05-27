@@ -8,6 +8,21 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- Netlify Identity Widget (for email confirmation callback) -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+        // 邮件确认后自动跳转到 /admin/
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", function(user) {
+                var hash = window.location.hash;
+                if (hash && hash.indexOf("confirmation_token=") > -1) {
+                    window.netlifyIdentity.on("login", function() {
+                        window.location.href = "/admin/";
+                    });
+                }
+            });
+        }
+    </script>
 </head>
 <body>
     <!-- Navigation -->

@@ -137,11 +137,21 @@ function applySiteImages() {
             // 使用 CMS 中的图片
             el.src = imgData.image;
             el.alt = imgData['alt_' + currentLang] || imgData.alt_en || '';
-            el.style.display = 'inline-block';
+            // 移除占位背景
+            el.style.background = 'transparent';
+            el.style.fontSize = '';
         } else {
-            // 使用默认表情包
+            // 使用默认表情包 - 直接替换innerHTML而不是outerHTML
             const emoji = defaultEmojis[key] || '📷';
-            el.outerHTML = `<span class="${el.className}" data-image-key="${key}" data-emoji="${emoji}">${emoji}</span>`;
+            const parent = el.parentElement;
+            if (parent) {
+                const span = document.createElement('span');
+                span.className = el.className;
+                span.setAttribute('data-image-key', key);
+                span.setAttribute('data-emoji', emoji);
+                span.textContent = emoji;
+                el.parentNode.replaceChild(span, el);
+            }
         }
     });
 }
@@ -191,12 +201,7 @@ function updatePageContent() {
     document.title = titles[currentLang];
 }
 
-// 语言切换
-function switchLanguage(lang) {
-    currentLang = lang;
-    updatePageContent();
-    localStorage.setItem('preferred-language', lang);
-}
+
 
 // 加载产品数据
 async function loadProducts() {
@@ -339,25 +344,10 @@ document.getElementById('inquiry-form')?.addEventListener('submit', function(e) 
     this.reset();
 });
 
-// 初始化
-document.addEventListener('DOMContentLoaded', function() {
-    // 恢复上次选择的语言
-    const savedLang = localStorage.getItem('preferred-language');
-    if (savedLang) {
-        currentLang = savedLang;
-    }
-    
-    // 加载内容
-    loadContent();
-    loadSiteImages();
-    loadProducts();
-});
-
-// 语言切换时更新图片 alt 文本
-const originalSwitchLanguage = switchLanguage;
-switchLanguage = function(lang) {
+// 语言切换（更新版本 - 同时更新图片alt）
+function switchLanguage(lang) {
     currentLang = lang;
     updatePageContent();
     applySiteImages(); // 重新应用图片（更新 alt 文本）
     localStorage.setItem('preferred-language', lang);
-};
+}

@@ -130,6 +130,29 @@ collections:
       - { label: "Certificate Image", name: "image", widget: "image" }
       - { label: "Valid Until", name: "valid_until", widget: "datetime" }
 
+  # ========== 网站图片管理 ==========
+  - name: "site_images"
+    label: "Site Images"
+    label_singular: "Site Image"
+    folder: "content/images"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Image Key", name: "key", widget: "string", hint: "Unique identifier: logo, hero_product, feature_factory, feature_rd, feature_oem, feature_export, quality_raw, quality_lab, quality_prod, b2b_moq, b2b_oem, b2b_export, b2b_price, contact_location, contact_phone, contact_hours, product_generic, social_facebook, social_instagram, social_telegram, social_whatsapp" }
+      - { label: "Image Name", name: "name", widget: "string" }
+      - label: "Categories"
+        name: "category"
+        widget: "select"
+        options: ["brand", "hero", "features", "quality", "b2b", "contact", "products", "social"]
+      - { label: "Image File", name: "image", widget: "image" }
+      - { label: "Alt Text (EN)", name: "alt_en", widget: "string" }
+      - { label: "Alt Text (UZ)", name: "alt_uz", widget: "string" }
+      - { label: "Alt Text (RU)", name: "alt_ru", widget: "string" }
+      - { label: "Description (EN)", name: "description_en", widget: "text", required: false }
+      - { label: "Description (UZ)", name: "description_uz", widget: "text", required: false }
+      - { label: "Description (RU)", name: "description_ru", widget: "text", required: false }
+      - { label: "Order", name: "order", widget: "number", default: 0 }
+
   # ========== 新闻动态 ==========
   - name: "news"
     label: "News & Updates"

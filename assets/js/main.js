@@ -1,6 +1,7 @@
 // ========== 内容数据加载器 ==========
 let currentLang = 'en';
 let siteContent = {};
+let siteImages = {};
 
 // 加载内容数据
 async function loadContent() {
@@ -15,6 +16,7 @@ async function loadContent() {
         updatePageContent();
     }
 }
+
 
 // 获取默认内容
 function getDefaultContent() {
@@ -51,7 +53,7 @@ function getDefaultContent() {
             hero_title: "O'zbekistonda<br><span>sifatli la'mon</span> ishlab chiqaruvchisi",
             hero_desc: "Biz yuqori sifatli tez tayyorlanadigan la'mon ishlab chiqaramiz.",
             hero_btn1: "Mahsulotlarni ko'rish",
-            hero_btn2: "Distributorga aylaning",
+            hero_btn2: "Distributorga aylan",
             stat1_number: "15+",
             stat1_label: "Mahsulot turlari",
             stat2_number: "50K+",
@@ -80,6 +82,76 @@ function getDefaultContent() {
             stat3_label: "Стран экспорта"
         }
     };
+}
+
+// ========== 图片数据加载器 ==========
+// 默认表情包（图片加载失败时显示）
+const defaultEmojis = {
+    logo: '🍜',
+    hero_product: '🍜',
+    feature_factory: '🏭',
+    feature_rd: '👨‍🔬',
+    feature_oem: '📦',
+    feature_export: '🌍',
+    quality_raw: '🌾',
+    quality_lab: '🔬',
+    quality_prod: '⚙️',
+    b2b_moq: '💼',
+    b2b_oem: '🎨',
+    b2b_export: '🚢',
+    b2b_price: '💰',
+    contact_location: '📍',
+    contact_phone: '📞',
+    contact_hours: '🕐',
+    product_generic: '🍜'
+};
+
+// 加载图片数据
+async function loadSiteImages() {
+    try {
+        const response = await fetch('content/images/index.json');
+        const images = await response.json();
+        
+        // 构建 key -> image 映射
+        images.forEach(img => {
+            siteImages[img.key] = img;
+        });
+        
+        applySiteImages();
+    } catch (error) {
+        console.log('Using default emoji icons');
+        applySiteImages();
+    }
+}
+
+// 应用图片到页面
+function applySiteImages() {
+    // 获取所有带 data-image-key 的图片元素
+    const imageElements = document.querySelectorAll('.site-image[data-image-key]');
+    
+    imageElements.forEach(el => {
+        const key = el.getAttribute('data-image-key');
+        const imgData = siteImages[key];
+        
+        if (imgData && imgData.image) {
+            // 使用 CMS 中的图片
+            el.src = imgData.image;
+            el.alt = imgData['alt_' + currentLang] || imgData.alt_en || '';
+            el.style.display = 'inline-block';
+        } else {
+            // 使用默认表情包
+            const emoji = defaultEmojis[key] || '📷';
+            el.outerHTML = `<span class="${el.className}" data-image-key="${key}" data-emoji="${emoji}">${emoji}</span>`;
+        }
+    });
+}
+
+// 获取产品图片
+function getProductImage(product) {
+    if (product.image) {
+        return `<img src="${product.image}" alt="${product.name[currentLang] || product.name.en}">`;
+    }
+    return product.emoji;
 }
 
 // 更新页面内容
@@ -208,9 +280,7 @@ function renderProducts(products) {
     container.innerHTML = products.map(product => `
         <div class="product-card">
             <div class="product-image">
-                ${product.image ? 
-                    `<img src="${product.image}" alt="${product.name[currentLang] || product.name.en}">` : 
-                    product.emoji}
+                ${getProductImage(product)}
                 ${product.badge ? 
                     `<span class="product-badge">${product.badge[currentLang] || product.badge.en}</span>` : 
                     ''}
@@ -279,5 +349,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // 加载内容
     loadContent();
+    loadSiteImages();
     loadProducts();
 });
+
+// 语言切换时更新图片 alt 文本
+const originalSwitchLanguage = switchLanguage;
+switchLanguage = function(lang) {
+    currentLang = lang;
+    updatePageContent();
+    applySiteImages(); // 重新应用图片（更新 alt 文本）
+    localStorage.setItem('preferred-language', lang);
+};

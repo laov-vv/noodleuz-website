@@ -91,6 +91,8 @@ img {
     justify-content: center;
     color: white;
     font-size: 24px;
+    object-fit: contain;
+    padding: 8px;
 }
 
 .nav-links {
@@ -326,6 +328,7 @@ img {
     box-shadow: var(--shadow-lg);
     position: relative;
     overflow: hidden;
+    object-fit: cover;
 }
 
 .floating-badge {
@@ -511,6 +514,8 @@ section {
     justify-content: center;
     font-size: 20px;
     flex-shrink: 0;
+    object-fit: contain;
+    padding: 8px;
 }
 
 .about-feature h4 {
@@ -661,6 +666,8 @@ section {
     align-items: center;
     justify-content: center;
     font-size: 36px;
+    object-fit: contain;
+    padding: 16px;
 }
 
 .quality-card h3 {
@@ -755,6 +762,8 @@ section {
     justify-content: center;
     font-size: 22px;
     flex-shrink: 0;
+    object-fit: contain;
+    padding: 10px;
 }
 
 .benefit-content h4 {
@@ -858,6 +867,8 @@ section {
     align-items: center;
     justify-content: center;
     font-size: 28px;
+    object-fit: contain;
+    padding: 14px;
 }
 
 .contact-card h3 {

@@ -1,0 +1,28 @@
+{
+  "name": "noodleuz-website",
+  "version": "1.0.0",
+  "description": "乌兹别克斯坦泡面厂商官方网站，使用 Decap CMS 进行内容管理。",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/laov-vv/noodleuz-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/laov-vv/noodleuz-website/issues"
+  },
+  "homepage": "https://github.com/laov-vv/noodleuz-website#readme",
+  "dependencies": {
+    "decap-cms-app": "^3.3.0"
+  },
+  "devDependencies": {
+    "html-webpack-plugin": "^5.6.7",
+    "webpack": "^5.107.2",
+    "webpack-cli": "^7.0.2"
+  }
+}

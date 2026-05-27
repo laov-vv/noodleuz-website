@@ -1,0 +1,10 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>NoodleUz - Content Manager</title></head><body><script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script><script src="cms-bundle.js"></script><script>// Identity 登录后重定向回 /admin/
+        if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", function(user) {
+                if (!user) {
+                    window.netlifyIdentity.on("login", function() {
+                        document.location.href = "/admin/";
+                    });
+                }
+            });
+        }</script></body></html>

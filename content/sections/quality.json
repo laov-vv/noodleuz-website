@@ -1,0 +1,22 @@
+{
+  "label_en": "Production Quality",
+  "title_en": "Full Quality Control from Raw Materials to Finished Products",
+  "title_uz": "Xom ashyodan tayyor mahsulotgacha to\u0027liq sifat nazorati",
+  "title_ru": "Полный контроль качества от сырья до готовой продукции",
+  "desc_en": "We strictly follow international food safety standards to ensure every package is safe and reliable",
+  "card1_image": "",
+  "card1_title_en": "Selected Raw Materials",
+  "card1_desc_en": "Premium wheat flour and natural spices, quality control from source, all suppliers certified",
+  "card2_image": "",
+  "card2_title_en": "Laboratory Testing",
+  "card2_desc_en": "Professional food testing laboratory, each batch undergoes physical-chemical and microbiological testing",
+  "card3_image": "",
+  "card3_title_en": "Automated Production",
+  "card3_desc_en": "Fully automatic production lines, minimized human contact, ensuring production hygiene and consistency",
+  "certifications": [
+    { "name": "Halal Certified", "code": "HALAL" },
+    { "name": "Food Safety Mgmt", "code": "ISO 22000" },
+    { "name": "Hazard Analysis", "code": "HACCP" },
+    { "name": "Production Quality", "code": "GMP" }
+  ]
+}
